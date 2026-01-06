@@ -9,8 +9,12 @@ from langchain_groq import ChatGroq  # ChatGroq class for interacting with LLMs
 
 
 # Retrieve and set API keys for external tools and services
-os.environ["groq_api_key"] = 'groq_api_key'  # Groq API key
-os.environ["TAVILY_API_KEY"] = 'tavily_api_key'  # Set Tavily API key
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # reads .env in project root
+groq_api_key = os.getenv("GROQ_API_KEY")
+tavily_api_key = os.getenv("TAVILY_API_KEY")
 
 # Predefined list of supported model names
 MODEL_NAMES = [
